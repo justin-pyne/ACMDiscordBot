@@ -42,19 +42,20 @@ async function generateMessage(textPrompt) {
             }
         ]
     });
-    return response.choices[0].message;
+    return response.choices[0].message.content;
 }
 
 
 /** add functionality -- We handle slash commands */
 client.on("interactionCreate", async (interaction) => {
-    if (interaction.isChatInputCommand()) return;
+    if (!interaction.isChatInputCommand()) return;
     if (interaction.channel.id !== process.env.CHANNEL_ID) return;
 
     if (interaction.commandName === "ama"){
         await interaction.deferReply();
-        const prompt = interaction.options.get("text").value();
+        const prompt = interaction.options.getString("text", true);
 
+        let response;
         try{
             // Get response
             response = await generateMessage(prompt);
