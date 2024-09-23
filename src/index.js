@@ -19,7 +19,7 @@ const client = new Client({
 
 /** Test that bot is successfully online */
 client.on("ready", (c) => {
-    console.log("${c.user.tag} is ready.");
+    console.log(`${c.user.tag} is ready.`);
 });
 
 /** Start running bot instance */
