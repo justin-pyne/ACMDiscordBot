@@ -1,6 +1,8 @@
 import dotenv from "dotenv";
 import { REST, Routes, SlashCommandBuilder } from "discord.js";
 
+dotenv.config();
+
 /** Define commands */
 const commands = [
     new SlashCommandBuilder()
@@ -36,4 +38,4 @@ const rest = new REST().setToken(process.env.DISCORD_API_KEY);
     } catch (e) {
         console.log(`There was an error: ${e}`);
     }
-})
+})();
