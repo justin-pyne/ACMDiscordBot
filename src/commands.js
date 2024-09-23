@@ -10,7 +10,7 @@ const commands = [
                                         .setDescription("Body Text")
                                         .setRequired(true)),
     new SlashCommandBuilder()
-        .setName("genImg")
+        .setName("genimg")
         .setDescription("Generate an image given the prompt!")
         .addStringOption(option => option.setName("text")
                                         .setDescription("Body Text")
